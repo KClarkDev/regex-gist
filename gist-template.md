@@ -16,6 +16,7 @@ For our report, we want the phone numbers to be in a ten digit format, separated
 - [Bracket Expressions](#bracket-expressions)
 - [Character Classes](#character-classes)
 - [Quantifiers](#quantifiers)
+- [Literal Characters](#literal-characters)
 
 ## Regex Components
 
@@ -47,4 +48,4 @@ In regular expressions, when you use a character outside of square brackets [], 
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Katherine Clark is a GIS Analyst and aspiring Geospatial Developer with more than five years industry experience. You can read more about her on her profile[https://kclarkdev.github.io/kc-project-portfolio/].

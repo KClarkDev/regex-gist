@@ -17,6 +17,7 @@ For our report, we want the phone numbers to be in a ten digit format, separated
 - [Character Classes](#character-classes)
 - [Quantifiers](#quantifiers)
 - [Literal Characters](#literal-characters)
+- [Adapting the Regex Expression for Survey123](#adapting-the-regex-expression-for-survey123]
 
 ## Regex Components
 
@@ -46,6 +47,10 @@ The parts of the expression that are enclosed in curly brackets `{ }` are **quan
 
 In regular expressions, when you use a character outside of square brackets [], it is treated as a literal character and matches itself. In our expresses, we include a dash `-` to require that the 3-digit area code, 3-digit exchange code, and 4-digit subscriber number of the phone number are separated by a dash.
 
+### Adapting the Regex Expression for Survey123
+
+
+
 ## Author
 
-Katherine Clark is a GIS Analyst and aspiring Geospatial Developer with more than five years industry experience. You can read more about her on her profile[https://kclarkdev.github.io/kc-project-portfolio/].
+Katherine Clark is a GIS Analyst and aspiring Geospatial Developer with more than five years industry experience. You can read more about her on her [profile](https://kclarkdev.github.io/kc-project-portfolio/).

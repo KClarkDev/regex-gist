@@ -1,10 +1,14 @@
-# Title (replace with your title)
+# Validating phone number inputs with Regex Expressions in Survey123
 
-Introductory paragraph (replace this with your text)
+When creating survey forms, it is often good practice to apply validation rules to ensure the input matches the format required for the final report output. By enforcing formatting rules right at the input stage, you can streamline the QAQC process and reduce user input errors that can cause headaches down the road. The following gist describes how a regex expression can be formatted and then applied to a Survey123 form in Survey123 Connect.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+Many surveys include a question asking the user to input a phone number. In this example, we are working with an inspection form that requires the user to collect phone numbers for the Facility Owner, Operator, Qualifed Person(s), and Environmental Individual(s). Given how many phone number questions there are in the survey, we want to make sure that each one is entered in the same format so that there is consistency in each facility report.
+
+For our report, we want the phone numbers to be in a ten digit format, separated by hyphens (i.e. 555-555-5555). 
+
+`^[2-9]\d{2}-\d{3}-\d{4}$`
 
 ## Table of Contents
 
@@ -23,6 +27,8 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ## Regex Components
 
 ### Anchors
+
+The characters `^` and `$` serve as anchors for our regex expression, and indicate how the string should start and end. In our example, we follow the first anchor by a bracket expression. 
 
 ### Quantifiers
 

@@ -10,6 +10,8 @@ For our report, we want the phone numbers to be in a ten digit format, separated
 
 `^[2-9]\d{2}-\d{3}-\d{4}$`
 
+Let's break down the different components of this expression so we can understand how it works.
+
 ## Table of Contents
 
 - [Anchors](#anchors)
@@ -17,6 +19,7 @@ For our report, we want the phone numbers to be in a ten digit format, separated
 - [Character Classes](#character-classes)
 - [Quantifiers](#quantifiers)
 - [Literal Characters](#literal-characters)
+- [Variations with Additional Restrictions](#variations-with-additional-restrictions)
 - [Adapting the Regex Expression for Survey123](#adapting-the-regex-expression-for-survey123)
 
 ## Regex Components
@@ -29,15 +32,9 @@ The characters `^` and `$` serve as anchors for our regex expression, and indica
 
 As mentioned above, the regex expressions starts with a **bracket expression** `[2-9]` that looks for the string to start with a numeric digit of a value of `2` through `9`. We omit `0` and `1` as a valid first character because in the United States, area codes cannot start with 0 or 1.
 
-and cannot end with 11 (as in 911 or 411 – as these are reserved for special uses).
-
-as is a 9 as the middle digit of an area code
-
-
 ### Character Classes
 
 A **character class** defines a set of characters that can be used in an input string to fulfill a match. In our expression, we use `/d` to match any Arabic numeral digit. Note that this class is equivalent to the bracket expression `[0-9]`.
-
 
 ### Quantifiers
 
@@ -45,19 +42,16 @@ The parts of the expression that are enclosed in curly brackets `{ }` are **quan
 
 ### Literal Characters
 
-In regular expressions, when you use a character outside of square brackets [], it is treated as a literal character and matches itself. In our expresses, we include a dash `-` to require that the 3-digit area code, 3-digit exchange code, and 4-digit subscriber number of the phone number are separated by a dash.
+In regular expressions, when you use a character outside of square brackets `[]`, it is treated as a literal character and matches itself. In our expresses, we include a dash `-` to require that the 3-digit area code, 3-digit exchange code, and 4-digit subscriber number of the phone number are separated by a dash.
 
-### Additional Variations
-
-There are additional restrictions for phone numbers in the United States that you may want to include in your expression. For example, the following expression meets the previous criteria, but also enforces additional restrictions for the area code part of the phone number. Area codes cannot start with a 0 or 1, the middle digit cannot be 9, and the combination of the last two digits of the area code cannot be 11 (i.e. 911 or 411).
-
-`^[2-8][0-8](?![1][1])-\d{3}-\d{4}$`
-
-We are familiar with most of the elements of this expression based on what we used previously. But what about that `?` and `!`? The part of the expression `(?![1][1])` is a **negative lookahead assertion** which is a non-capturing group that specifies a condition that must **not** be true for a match to occur.
 
 ### Adapting the Regex Expression for Survey123
 
+Your regular expression will be added in the `constraint` column of the XLS form. You will need to use the following format: 
 
+`regex(., '^[2-9]\d{2}-\d{3}-\d{4}$')`
+
+The period used at the start applies the expression to the current field. Adding the name of another field in its place instead applies the regular expression to that field, which is ideal for relevant expressions. The comma acts as a separator between this field definition and the expression.
 
 ## Author
 

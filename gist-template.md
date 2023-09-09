@@ -6,49 +6,32 @@ When creating survey forms, it is often good practice to apply validation rules 
 
 Many surveys include a question asking the user to input a phone number. In this example, we are working with an inspection form that requires the user to collect phone numbers for the Facility Owner, Operator, Qualifed Person(s), and Environmental Individual(s). Given how many phone number questions there are in the survey, we want to make sure that each one is entered in the same format so that there is consistency in each facility report.
 
-For our report, we want the phone numbers to be in a ten digit format, separated by hyphens (i.e. 555-555-5555). 
+For our report, we want the phone numbers to be in a ten digit format, separated by hyphens (i.e. 555-555-5555). The following regex expression will accomplish this:
 
 `^[2-9]\d{2}-\d{3}-\d{4}$`
 
 ## Table of Contents
 
 - [Anchors](#anchors)
-- [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
-- [Character Classes](#character-classes)
-- [Flags](#flags)
-- [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+- [Character Classes](#character-classes)
+- [Quantifiers](#quantifiers)
 
 ## Regex Components
 
 ### Anchors
 
-The characters `^` and `$` serve as anchors for our regex expression, and indicate how the string should start and end. In our example, we follow the first anchor by a bracket expression. 
-
-### Quantifiers
-
-### OR Operator
-
-### Character Classes
-
-### Flags
-
-### Grouping and Capturing
+The characters `^` and `$` serve as anchors for our regex expression, and indicate how the string should start and end. In our example, we follow the first anchor by a bracket expression that accepts a range of valid digits. The closing anchor is preceeded with a quantifier that indicates the requirement for four consecutive digits in the input string.
 
 ### Bracket Expressions
 
-### Greedy and Lazy Match
+As mentioned above, the regex expressions starts with a **bracket expression** `[2-9]` that looks for the string to start with a numeric digit of a value of `2` through `9`. We omit `0` and `1` as a valid first character because in the United States, area codes cannot start with 0 or 1.
 
-### Boundaries
+### Character Classes
 
-### Back-references
+### Quantifiers
 
-### Look-ahead and Look-behind
+The rest of the expression includes **quantifiers**, which set the limits of the string that the regex matches. 
 
 ## Author
 

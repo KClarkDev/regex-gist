@@ -1,6 +1,6 @@
 # Validating Phone Number Inputs with Regex Expressions in Survey123
 
-When creating survey forms, it is often good practice to apply validation rules to ensure the input matches the format required for the final report output. By enforcing formatting rules right at the input stage, you can streamline the QAQC process and reduce user input errors that can cause headaches down the road. The following gist describes how a regex expression can be formatted and then applied to a Survey123 form in Survey123 Connect.
+When creating survey forms, it is often good practice to apply validation rules to ensure the input matches the format required for the final report output. By enforcing formatting rules right at the input stage, you can streamline the QAQC process and reduce user input errors that can cause headaches down the road. The following gist describes how a regex expression can be formatted and then applied to a Survey123 form using Survey123 Connect.
 
 ## Summary
 
@@ -17,7 +17,7 @@ For our report, we want the phone numbers to be in a ten digit format, separated
 - [Character Classes](#character-classes)
 - [Quantifiers](#quantifiers)
 - [Literal Characters](#literal-characters)
-- [Adapting the Regex Expression for Survey123](#adapting-the-regex-expression-for-survey123]
+- [Adapting the Regex Expression for Survey123](#adapting-the-regex-expression-for-survey123)
 
 ## Regex Components
 
@@ -46,6 +46,14 @@ The parts of the expression that are enclosed in curly brackets `{ }` are **quan
 ### Literal Characters
 
 In regular expressions, when you use a character outside of square brackets [], it is treated as a literal character and matches itself. In our expresses, we include a dash `-` to require that the 3-digit area code, 3-digit exchange code, and 4-digit subscriber number of the phone number are separated by a dash.
+
+### Additional Variations
+
+There are additional restrictions for phone numbers in the United States that you may want to include in your expression. For example, the following expression meets the previous criteria, but also enforces additional restrictions for the area code part of the phone number. Area codes cannot start with a 0 or 1, the middle digit cannot be 9, and the combination of the last two digits of the area code cannot be 11 (i.e. 911 or 411).
+
+`^[2-8][0-8](?![1][1])-\d{3}-\d{4}$`
+
+We are familiar with most of the elements of this expression based on what we used previously. But what about that `?` and `!`? The part of the expression `(?![1][1])` is a **negative lookahead assertion** which is a non-capturing group that specifies a condition that must **not** be true for a match to occur.
 
 ### Adapting the Regex Expression for Survey123
 

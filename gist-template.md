@@ -38,7 +38,7 @@ A **character class** defines a set of characters that can be used in an input s
 
 ### Quantifiers
 
-The parts of the expression that are enclosed in curly brackets `{ }` are **quantifiers**. which set the limits of the string that the regex matches. For example, in our expression we use {4} as a quantifier to specify that the preceding \d should be matched exactly four times, meaning it will match four consecutive digits.
+The parts of the expression that are enclosed in curly brackets `{ }` are **quantifiers**, which set the limits of the string that the regex matches. For example, in our expression we use {4} as a quantifier to specify that the preceding \d should be matched exactly four times, meaning it will match four consecutive digits.
 
 ### Literal Characters
 
